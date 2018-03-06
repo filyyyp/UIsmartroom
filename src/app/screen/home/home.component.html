@@ -1,0 +1,22 @@
+<div class="container pt-5">
+  <div class="row">
+    <div class="col-4"><button class="btn w-100" [ngClass]="showW1 ? 'btn-primary':'btn-default'"
+                               (click)="showW1=!showW1">Widget 1</button></div>
+    <div class="col-4"><button class="btn w-100" [ngClass]="showW2 ? 'btn-primary':'btn-default'"
+                               (click)="showW2=!showW2">Widget 2</button></div>
+    <div class="col-4"><button class="btn w-100" [ngClass]="showW3 ? 'btn-primary':'btn-default'"
+                               (click)="showW3=!showW3">Widget 3</button></div>
+  </div>
+  <div class="row">
+    <div *ngIf="showW1" class="col-xs-12 col-md-6 col-lg-4 p-3">
+      <app-bulb></app-bulb>
+    </div>
+    <div *ngIf="showW2" class="col-xs-12 col-md-6 col-lg-4 p-3">
+      <app-bulb></app-bulb>
+    </div>
+    <div *ngIf="showW3" class="col-xs-12 col-md-6 col-lg-4 p-3">
+      <app-bulb></app-bulb>
+    </div>
+
+  </div>
+</div>
