@@ -1,15 +1,14 @@
-<div class="card">
-  <h3 class="card-header">Bulb 1</h3>
-  <div class="card-body">
-    <div class="card-widget row">
+<div class="card h-100">
+  <h3 class="card-header">Centrálne svetlo</h3>
+  <div class="card-body h-100">
+    <div class="card-widget row h-100 align-items-center">
       <div class="col-12 p-0 text-center">
-        <i class="fa fa-lightbulb-o fa-5x" [ngClass]="bulb ? 'color-black':'color-yellow'"></i>
+        <img *ngIf="!loaded" class="w-25 mb-4" src="assets/loader.gif">
+        <i *ngIf="loaded" class="fa fa-lightbulb-o fa-5x" [ngClass]="bulb ? 'color-yellow':'color-black'"></i>
       </div>
-      <div class="col-12 align-self-end">
-        <button class="btn btn-primary w-100" (click)="bulbChangeStatus()">{{ bulb ? 'OFF' : 'ON' }}</button>
+      <div class="col-12">
+        <button class="btn btn-primary w-100" (click)="bulbChangeStatus()">{{ bulb ? 'Vypnúť' : 'Zapnúť' }}</button>
       </div>
     </div>
-
   </div>
-
 </div>

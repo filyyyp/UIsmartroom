@@ -1,22 +1,26 @@
-<div class="container pt-5">
-  <div class="row">
-    <div class="col-4"><button class="btn w-100" [ngClass]="showW1 ? 'btn-primary':'btn-default'"
-                               (click)="showW1=!showW1">Widget 1</button></div>
-    <div class="col-4"><button class="btn w-100" [ngClass]="showW2 ? 'btn-primary':'btn-default'"
-                               (click)="showW2=!showW2">Widget 2</button></div>
-    <div class="col-4"><button class="btn w-100" [ngClass]="showW3 ? 'btn-primary':'btn-default'"
-                               (click)="showW3=!showW3">Widget 3</button></div>
-  </div>
-  <div class="row">
-    <div *ngIf="showW1" class="col-xs-12 col-md-6 col-lg-4 p-3">
-      <app-bulb></app-bulb>
-    </div>
-    <div *ngIf="showW2" class="col-xs-12 col-md-6 col-lg-4 p-3">
-      <app-bulb></app-bulb>
-    </div>
-    <div *ngIf="showW3" class="col-xs-12 col-md-6 col-lg-4 p-3">
-      <app-bulb></app-bulb>
+<div class="container">
+  <div class="row equal">
+    <div class="col-md-8 h-100">
+      <div class="align-self-end h-100">
+        <div class="row text-center">
+          <div class="col border border-primary p-2"><i class="fa fa-power-off fa-5x"></i><h4 class="mb-0 mt-1 align-bottom">Vypnut</h4></div>
+          <div class="col border border-primary p-2"><i class="fa fa-tv fa-5x"></i><h4 class="mb-0 mt-1 align-bottom">Kino</h4></div>
+          <div class="col border border-primary p-2"><i class="fa fa-music fa-5x"></i><h4 class="mb-0 mt-1 align-bottom">Hudba</h4></div>
+          <div class="col border border-primary p-2"><i class="fa fa-bed fa-5x"></i><h4 class="mb-0 mt-1 align-bottom">Relax</h4></div>
+          <div class="col border border-primary p-2"><i class="fa fa-volume-off fa-5x"></i><h4 class="mb-0 mt-1 align-bottom">Tichý</h4></div>
+        </div>
+      </div>
+
     </div>
 
+    <div class="col-md-4">
+
+      <h1 class="display-4">Cas</h1>
+      <h1 class="display-4">Den</h1>
+      <h1 class="display-4">Datum</h1>
+      <div>
+        <h1 class="display-4">Widget pocasia</h1>
+      </div>
+    </div>
   </div>
 </div>
