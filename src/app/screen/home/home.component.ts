@@ -25,7 +25,17 @@ export class HomeComponent implements OnInit {
         data=>{
 
         this.messageFromServer = data;
-        console.log(data);
+        console.log(JSON.parse(data));
+
+        if(JSON.parse(data).type=="event"){
+          if(JSON.parse(data).event.data.entity_id=="sensor.time"){
+            this.time=JSON.parse(data).event.data.new_state.state;
+          }
+        }
+
+
+
+
         if(this.connected==false){
           this.wsService.sendMessage({
               "id" : 1,
