@@ -7,7 +7,8 @@ import {WebsocketService} from "../../service/websocket.service";
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  providers: [ WebsocketService ]
 })
 export class HomeComponent implements OnInit {
   time: string;
@@ -15,6 +16,8 @@ export class HomeComponent implements OnInit {
   temperature: number;
   weatherState: string;
   messageFromServer:string;
+  connected:boolean;
+
 
   constructor(private contolService : ControlService,private wsService: WebsocketService) {
     this.wsService.createObservableSocket("ws://hassio.local:8123/api/websocket")
@@ -23,19 +26,22 @@ export class HomeComponent implements OnInit {
 
         this.messageFromServer = data;
         console.log(data);
-
+        if(this.connected==false){
+          this.wsService.sendMessage({
+              "id" : 1,
+              "type": "subscribe_events"
+            }
+          );
+          this.connected=true;
+        }
       });
+
 
   }
 
 
   ngOnInit() {
-    this.wsService.sendMessage({
-        "id" : 1,
-        "type": "subscribe_events",
-        "event_type": "state_changed"
-      }
-    );
+    this.connected = false;
 
     this.contolService.timeGetActual().then(result => {
       this.time = result.state;
