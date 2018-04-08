@@ -17,6 +17,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatSliderModule} from "@angular/material";
 import {ControlService} from "./service/control.service";
 import {Http, HttpModule} from "@angular/http";
+import {WebsocketService} from "./service/websocket.service";
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import {Http, HttpModule} from "@angular/http";
 
   ],
   providers: [
-    ControlService
+    ControlService,
+    WebsocketService
   ],
   bootstrap: [AppComponent]
 })
