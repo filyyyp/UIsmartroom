@@ -34,8 +34,6 @@ export class HomeComponent implements OnInit {
         }
 
 
-
-
         if(this.connected==false){
           this.wsService.sendMessage({
               "id" : 1,
