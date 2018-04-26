@@ -1,26 +1,84 @@
 <div class="container">
-  <div class="row equal">
-    <div class="col-md-8 h-100">
-      <div class="align-self-end h-100">
-        <div class="row text-center">
-          <div class="col border border-primary p-2"><i class="fa fa-power-off fa-5x"></i><h4 class="mb-0 mt-1 align-bottom">Vypnut</h4></div>
-          <div class="col border border-primary p-2"><i class="fa fa-tv fa-5x"></i><h4 class="mb-0 mt-1 align-bottom">Kino</h4></div>
-          <div class="col border border-primary p-2"><i class="fa fa-music fa-5x"></i><h4 class="mb-0 mt-1 align-bottom">Hudba</h4></div>
-          <div class="col border border-primary p-2"><i class="fa fa-bed fa-5x"></i><h4 class="mb-0 mt-1 align-bottom">Relax</h4></div>
-          <div class="col border border-primary p-2"><i class="fa fa-volume-off fa-5x"></i><h4 class="mb-0 mt-1 align-bottom">Tichý</h4></div>
+  <div class="row d-flex">
+    <div class="col-md-8 p-0">
+      <div class="h-100 border border-primary border-bottom-0 border-right-0 p-3">
+
+        <div class="row text-center px-4">
+          <div class="col btn btn-secondary m-1"> <i class="fa fa-backward fa-3x"></i> </div>
+          <div class="col btn btn-secondary m-1"> <i class="fa fa-play fa-3x"></i> </div>
+          <div class="col btn btn-secondary m-1"> <i class="fa fa-forward fa-3x"></i> </div>
+        </div>
+
+        <div class="row text-center px-4">
+          <div class="col btn btn-secondary m-1"> <i class="fa fa-fast-backward fa-3x"></i> </div>
+          <div class="col btn btn-secondary m-1"> <i class="fa fa-stop fa-3x"></i> </div>
+          <div class="col btn btn-secondary m-1"> <i class="fa fa-pause fa-3x"></i> </div>
+          <div class="col btn btn-secondary m-1"> <i class="fa fa-fast-forward fa-3x"></i> </div>
+        </div>
+
+        <div class="row text-center px-5">
+          <div class="col px-5 pt-2">
+            <div class="row">
+              <div class="col btn"><b>PLAYER</b><br><i class="fa fa-circle fa-2x"></i></div>
+              <div class="col btn btn-secondary"> <i class="fa fa-chevron-up fa-3x"></i> </div>
+              <div class="col btn"><b>INFO</b><br><i class="fa fa-circle fa-2x"></i></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row text-center px-5">
+          <div class="col px-5 pt-2">
+            <div class="row">
+              <div class="col btn btn-secondary m-1"> <i class="fa fa-chevron-left fa-3x"></i> </div>
+              <div class="col btn btn-secondary m-1"><h1 class="m-0"><b>OK</b></h1></div>
+              <div class="col btn btn-secondary m-1"> <i class="fa fa-chevron-right fa-3x"></i> </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row text-center px-5">
+          <div class="col px-5 pt-2">
+            <div class="row">
+              <div class="col btn"><i class="fa fa-circle fa-2x"></i><br><b>MENU</b></div>
+              <div class="col btn btn-secondary"> <i class="fa fa-chevron-down fa-3x"></i> </div>
+              <div class="col btn"><i class="fa fa-circle fa-2x"></i><br><b>BACK</b></div>
+            </div>
+          </div>
         </div>
       </div>
-
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-4 border border-primary border-bottom-0 text-center">
+      <h1 class="display-4 text-center"><b>{{time}}</b></h1>
+      <h1 class="display-4 text-center"><b>{{date | date}}</b></h1>
+      <h1 class="display-4 text-center"><b>{{temperature}}°C  {{weatherState}}</b></h1>
+      <div class="d-flex"><i class="fa fa-cog fa-5x "></i></div>
+    </div>
+  </div>
 
-      <h1 class="display-4">{{time}}</h1>
-      <h1 class="display-4">{{date}}</h1>
-      <div>
-        <h1 class="display-4">{{temperature}}  {{weatherState}}</h1>
+  <div class="row">
+    <div class="col">
+      <div class="row text-center">
+        <div class="col border border-primary border-right-0 p-2">
+          <i class="fa fa-power-off fa-5x color-red"></i><h4 class="mb-0 mt-1 align-bottom">Vypnúť</h4>
+        </div>
+        <div class="col border border-primary border-right-0 p-2">
+          <i class="fa fa-tv fa-5x"></i><h4 class="mb-0 mt-1 align-bottom">Kino</h4>
+        </div>
+        <div class="col border border-primary border-right-0 p-2">
+          <i class="fa fa-music fa-5x"></i><h4 class="mb-0 mt-1 align-bottom">Hudba</h4>
+        </div>
+        <div class="col border border-primary border-right-0 p-2">
+          <i class="fa fa-bed fa-5x"></i><h4 class="mb-0 mt-1 align-bottom">Relax</h4>
+        </div>
+        <div class="col border border-primary p-2">
+          <i class="fa fa-volume-off fa-5x"></i><h4 class="mb-0 mt-1 align-bottom">Tichý</h4>
+        </div>
       </div>
     </div>
   </div>
+
 </div>
+
+
 
