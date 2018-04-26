@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ControlService} from "../../service/control.service";
 import {WebsocketService} from "../../service/websocket.service";
 
@@ -17,6 +17,9 @@ export class HomeComponent implements OnInit {
   weatherState: string;
   messageFromServer:string;
   connected:boolean;
+
+
+  @Output() showSettings = new EventEmitter();
 
 
   constructor(private contolService : ControlService,private wsService: WebsocketService) {
@@ -63,9 +66,10 @@ export class HomeComponent implements OnInit {
       this.temperature = result.attributes.temperature;
       this.weatherState = result.state;
     });
+  }
 
-
-
+  settingsShow(){
+    this.showSettings.emit();
   }
 
 }

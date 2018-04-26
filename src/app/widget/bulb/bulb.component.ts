@@ -5,6 +5,8 @@ import {Observable} from "rxjs/Observable";
 
 
 import {HttpClient} from "@angular/common/http";
+import {State} from "../../model/State";
+import {BulbState} from "../../model/BulbState";
 
 
 @Component({
@@ -31,9 +33,16 @@ export class BulbComponent implements OnInit {
   }
 
   bulbChangeStatus(){
-    this.bulb = !this.bulb;
+    //this.bulb = !this.bulb;
+    this.contolService.centralLightPostState(!this.bulb).then(
+      result=> {
+        this.bulb = (result.json() as BulbState).attributes.control;
+        console.log((result.json() as BulbState));
+      });
 
-    this.contolService.centralLightPostState(this.bulb).then(result=> {console.log(result);});
+
+
+    //this.contolService.centralLightPostState(this.bulb).then(result=> {console.log(result);});
 
   }
 

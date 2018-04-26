@@ -1,2 +1,2 @@
-<app-home></app-home>
-<app-settings></app-settings>
+<app-home (showSettings)="showSettings=!showSettings"></app-home>
+<app-settings *ngIf="showSettings"></app-settings>
