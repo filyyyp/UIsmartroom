@@ -13,16 +13,20 @@ import {WebsocketService} from "../../service/websocket.service";
 export class HomeComponent implements OnInit {
   time: string;
   date: string;
-  temperature: number;
+  temperature: string;
   weatherState: string;
   messageFromServer:string;
   connected:boolean;
+  profil: number = 0;
+  idWs: number = 1;
+
 
 
   @Output() showSettings = new EventEmitter();
 
 
   constructor(private contolService : ControlService,private wsService: WebsocketService) {
+
     this.wsService.createObservableSocket("ws://hassio.local:8123/api/websocket")
       .subscribe(
         data=>{
@@ -63,13 +67,30 @@ export class HomeComponent implements OnInit {
     });
 
     this.contolService.weatherGet().then(result => {
-      this.temperature = result.attributes.temperature;
+      this.temperature = result.attributes.temperature + "°C" ;
       this.weatherState = result.state;
     });
   }
 
   settingsShow(){
     this.showSettings.emit();
+  }
+
+  setProfile(profil: number){
+    this.profil = profil;
+    console.log(this.profil);
+  }
+
+  kodi(service:string,method:string = ""){
+    this.idWs++;
+    this.wsService.sendMessage({
+        "id": this.idWs,
+        "type": "call_service",
+        "domain": "media_player",
+        "service": service,
+        "service_data": method==""?{}:{"method": method}
+      }
+    );
   }
 
 }

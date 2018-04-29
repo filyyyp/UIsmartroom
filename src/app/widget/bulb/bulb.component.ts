@@ -33,17 +33,10 @@ export class BulbComponent implements OnInit {
   }
 
   bulbChangeStatus(){
-    //this.bulb = !this.bulb;
     this.contolService.centralLightPostState(!this.bulb).then(
       result=> {
-        this.bulb = (result.json() as BulbState).attributes.control;
-        console.log((result.json() as BulbState));
+        this.bulb = result.attributes.control;
       });
-
-
-
-    //this.contolService.centralLightPostState(this.bulb).then(result=> {console.log(result);});
-
   }
 
 }
