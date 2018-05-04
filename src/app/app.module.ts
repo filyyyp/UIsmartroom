@@ -3,8 +3,7 @@ import { NgModule } from '@angular/core';
 import {AppComponent} from "./main/app.component";
 import {HomeComponent} from "./screen/home/home.component";
 import {BulbComponent} from "./widget/bulb/bulb.component";
-import {FormControl, FormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
 import {SettingsComponent} from "./screen/settings/settings.component";
 import {AmplifierComponent} from "./widget/amplifier/amplifier.component";
 import {CurtainComponent} from "./widget/curtain/curtain.component";
@@ -16,8 +15,9 @@ import {UiSwitchModule} from "ngx-ui-switch";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatSliderModule} from "@angular/material";
 import {ControlService} from "./service/control.service";
-import {Http, HttpModule} from "@angular/http";
+import {HttpModule} from "@angular/http";
 import {WebsocketService} from "./service/websocket.service";
+import {MonthsSlovak, WeatherSlovak} from "./pipes";
 
 
 @NgModule({
@@ -31,7 +31,9 @@ import {WebsocketService} from "./service/websocket.service";
     LedlightComponent,
     SocketComponent,
     TvComponent,
-    VoiceComponent
+    VoiceComponent,
+    MonthsSlovak,
+    WeatherSlovak
   ],
   imports: [
     BrowserModule,

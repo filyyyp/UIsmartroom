@@ -19,9 +19,9 @@
         <div class="row text-center px-sm-5">
           <div class="col px-5 pt-2">
             <div class="row">
-              <div class="col btn" (click)="kodi('kodi_call_method','Input.ShowOSD')"><b>PLAYER</b><br><i class="fa fa-circle fa-2x"></i></div>
+              <div class="col btn" (click)="kodi('kodi_call_method','Input.ShowOSD')"><b>PREHRÁVAČ</b><br><i class="fa fa-circle fa-2x"></i></div>
               <div class="col btn btn-secondary" (click)="kodi('kodi_call_method','Input.Up')"> <i class="fa fa-chevron-up fa-3x"></i> </div>
-              <div class="col btn" (click)="kodi('kodi_call_method','Input.Info')"><b>INFO</b><br><i class="fa fa-circle fa-2x"></i></div>
+              <div class="col btn" (click)="kodi('kodi_call_method','Input.Info')"><b>INFORMÁCIE</b><br><i class="fa fa-circle fa-2x"></i></div>
             </div>
           </div>
         </div>
@@ -41,37 +41,45 @@
             <div class="row">
               <div class="col btn" (click)="kodi('kodi_call_method','Input.Home')"><i class="fa fa-circle fa-2x"></i><br><b>MENU</b></div>
               <div class="col btn btn-secondary" (click)="kodi('kodi_call_method','Input.Down')"> <i class="fa fa-chevron-down fa-3x"></i> </div>
-              <div class="col btn"><i class="fa fa-circle fa-2x" (click)="kodi('kodi_call_method','Input.Back')"></i><br><b>BACK</b></div>
+              <div class="col btn"><i class="fa fa-circle fa-2x" (click)="kodi('kodi_call_method','Input.Back')"></i><br><b>SPÄŤ</b></div>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="col-md-4 text-center mb-2">
-      <h1 class="display-4 text-center"><b>{{time}}</b></h1>
-      <h1 class="display-4 text-center"><b>{{date | date}}</b></h1>
-      <h1 class="display-4 text-center"><b>{{temperature}} {{weatherState}}</b></h1>
+    <div class="col-md-4 text-center mb-2 mt-xl-5">
+      <h1 class="display-4 text-center  d-none d-md-block"><b>{{time}}</b></h1>
+      <h1 class="display-4 text-center  d-none d-md-block"><b>{{date | date:'MM' | monthsSlovak}} {{date | date:'d, y'}}</b></h1>
+      <h1 class="display-4 text-center  d-none d-md-block"><b>{{temperature}} {{weatherState| weatherSlovak}}</b></h1>
       <div class=""><i class="fa fa-cog fa-5x btn btn-danger" (click)="settingsShow()"></i></div>
     </div>
   </div>
 
   <div class="row">
     <div class="col">
-      <div class="row text-center">
-        <div class="col border border-right-0 p-2 btn">
-          <i class="fa fa-power-off fa-5x color-red"></i><h4 class="mb-0 mt-1 align-bottom">Napájanie Tv</h4>
+      <div class="row ">
+        <div class="col-4 col-sm border border-right-0 p-2 btn center" [ngClass]="profil == 0 ? 'btn-active':''" (click)="setProfile(0)">
+          <div class="row h-100 align-items-center justify-content-center text-center">
+            <div class="col-auto">
+              <i class="fa fa-power-off fa-5x color-red"></i>
+            </div>
+          </div>
         </div>
-        <div [ngClass]="profil == 0 ? 'btn-active':''" class="col border border-right-0 p-2 btn" (click)="setProfile(0)">
+
+        <div [ngClass]="profil == 1 ? 'btn-active':''" class="col-4 col-sm border border-right-0 p-2 btn" (click)="setProfile(1)">
           <i class="fa fa-tv fa-5x"></i><h4 class="mb-0 mt-1 align-bottom">Kino</h4>
         </div>
-        <div [ngClass]="profil == 1 ? 'btn-active':''" class="col border border-right-0 p-2 btn" (click)="setProfile(1)">
+
+        <div [ngClass]="profil == 2 ? 'btn-active':''" class="col-4 col-sm border border-right-0 p-2 btn" (click)="setProfile(2)">
           <i class="fa fa-music fa-5x"></i><h4 class="mb-0 mt-1 align-bottom">Hudba</h4>
         </div>
-        <div [ngClass]="profil == 2 ? 'btn-active':''" class="col border border-right-0 p-2 btn" (click)="setProfile(2)">
+
+        <div [ngClass]="profil == 3 ? 'btn-active':''" class="col-6 col-sm border border-right-0 p-2 btn" (click)="setProfile(3)">
           <i class="fa fa-bed fa-5x"></i><h4 class="mb-0 mt-1 align-bottom">Relax</h4>
         </div>
-        <div [ngClass]="profil == 3 ? 'btn-active':''" (click)="setProfile(3)" class="col border p-2 btn" >
+
+        <div [ngClass]="profil == 4 ? 'btn-active':''" class="col-6 col-sm border p-2 btn" (click)="setProfile(4)">
           <i class="fa fa-volume-off fa-5x"></i><h4 class="mb-0 mt-1 align-bottom">Tichý</h4>
         </div>
       </div>

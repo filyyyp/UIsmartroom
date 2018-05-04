@@ -10,6 +10,7 @@ export class VoiceComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }
