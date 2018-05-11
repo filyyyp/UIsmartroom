@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   weatherState: string;
   messageFromServer:string;
   connected:boolean;
-  profil: number = 0;
+  profile: number ;
   idWs: number = 1;
 
 
@@ -70,15 +70,23 @@ export class HomeComponent implements OnInit {
       this.temperature = result.attributes.temperature + "°C" ;
       this.weatherState = result.state;
     });
+
+    this.contolService.profileGetState().then(result => {
+      this.profile = result.attributes.control;
+    });
   }
 
   settingsShow(){
     this.showSettings.emit();
   }
 
-  setProfile(profil: number){
-    this.profil = profil;
-    console.log(this.profil);
+  setProfile(profile: number){
+    //this.profile = profile;
+    //console.log(this.profile);
+    this.contolService.profilePostState(profile).then(
+      result=> {
+        this.profile = result.attributes.control;
+      });
   }
 
   kodi(service:string,method:string = ""){

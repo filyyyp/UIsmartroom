@@ -4,9 +4,9 @@
     <div class="card-widget row h-100 align-items-center">
       <div class="col-6 p-0 text-center ">
         <div class="list-group pl-3">
-          <a class="list-group-item list-group-item-action" (click)="socket=0" [ngClass]="socket == 0 ? 'active':''">Lampa</a>
-          <a class="list-group-item list-group-item-action" (click)="socket=1" [ngClass]="socket == 1 ? 'active':''">Zásuvka 1</a>
-          <a class="list-group-item list-group-item-action" (click)="socket=2" [ngClass]="socket == 2 ? 'active':''">Zásuvka 2</a>
+          <a class="list-group-item list-group-item-action" (click)="changeSocket(0)" [ngClass]="socket == 0 ? 'active':''">Lampa</a>
+          <a class="list-group-item list-group-item-action" (click)="changeSocket(1)" [ngClass]="socket == 1 ? 'active':''">Zásuvka 1</a>
+          <a class="list-group-item list-group-item-action" (click)="changeSocket(2)" [ngClass]="socket == 2 ? 'active':''">Zásuvka 2</a>
         </div>
       </div>
       <div class="col-6  text-center" *ngIf="!loaded">

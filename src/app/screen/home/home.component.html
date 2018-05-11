@@ -59,7 +59,7 @@
   <div class="row">
     <div class="col">
       <div class="row ">
-        <div class="col-4 col-sm border border-right-0 p-2 btn center" [ngClass]="profil == 0 ? 'btn-active':''" (click)="setProfile(0)">
+        <div class="col-4 col-sm border border-right-0 p-2 btn center" [ngClass]="profile == 0 ? 'btn-active':''" (click)="setProfile(0)">
           <div class="row h-100 align-items-center justify-content-center text-center">
             <div class="col-auto">
               <i class="fa fa-power-off fa-5x color-red"></i>
@@ -67,19 +67,19 @@
           </div>
         </div>
 
-        <div [ngClass]="profil == 1 ? 'btn-active':''" class="col-4 col-sm border border-right-0 p-2 btn" (click)="setProfile(1)">
+        <div [ngClass]="profile == 1 ? 'btn-active':''" class="col-4 col-sm border border-right-0 p-2 btn" (click)="setProfile(1)">
           <i class="fa fa-tv fa-5x"></i><h4 class="mb-0 mt-1 align-bottom">Kino</h4>
         </div>
 
-        <div [ngClass]="profil == 2 ? 'btn-active':''" class="col-4 col-sm border border-right-0 p-2 btn" (click)="setProfile(2)">
+        <div [ngClass]="profile == 2 ? 'btn-active':''" class="col-4 col-sm border border-right-0 p-2 btn" (click)="setProfile(2)">
           <i class="fa fa-music fa-5x"></i><h4 class="mb-0 mt-1 align-bottom">Hudba</h4>
         </div>
 
-        <div [ngClass]="profil == 3 ? 'btn-active':''" class="col-6 col-sm border border-right-0 p-2 btn" (click)="setProfile(3)">
+        <div [ngClass]="profile == 3 ? 'btn-active':''" class="col-6 col-sm border border-right-0 p-2 btn" (click)="setProfile(3)">
           <i class="fa fa-bed fa-5x"></i><h4 class="mb-0 mt-1 align-bottom">Relax</h4>
         </div>
 
-        <div [ngClass]="profil == 4 ? 'btn-active':''" class="col-6 col-sm border p-2 btn" (click)="setProfile(4)">
+        <div [ngClass]="profile == 4 ? 'btn-active':''" class="col-6 col-sm border p-2 btn" (click)="setProfile(4)">
           <i class="fa fa-volume-off fa-5x"></i><h4 class="mb-0 mt-1 align-bottom">Tichý</h4>
         </div>
       </div>
