@@ -2,3 +2,9 @@
   background-color: red;
   border-color: #8c0000;
 }
+
+.list-group-item.active[_ngcontent-c5] {
+  background-color: red;
+  border-color: #8c0000;
+  color: white;
+}

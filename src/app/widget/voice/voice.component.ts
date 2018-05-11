@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ControlService} from "../../service/control.service";
 
 @Component({
   selector: 'app-voice',
@@ -6,11 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./voice.component.css']
 })
 export class VoiceComponent implements OnInit {
+  loaded:boolean;
+  power:boolean;
 
-  constructor() { }
+  constructor(private contolService : ControlService) { }
 
   ngOnInit() {
-
+    this.contolService.voiceGetState().then(result => {
+      this.power = result.attributes.control;
+      this.loaded = true;
+    });
   }
 
+  powerChangeStatus(){
+    this.contolService.voicePostState(!this.power).then(
+      result=> {
+        this.power = result.attributes.control;
+      });
+  }
 }

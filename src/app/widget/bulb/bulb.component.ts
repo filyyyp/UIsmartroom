@@ -25,7 +25,7 @@ export class BulbComponent implements OnInit {
 
   ngOnInit() {
     this.contolService.centralLightGetState().then(result => {
-      console.log(result.attributes.control);
+      //console.log(result.attributes.control);
       this.bulb = result.attributes.control;
       this.loaded = true;
     });

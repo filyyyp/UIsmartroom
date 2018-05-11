@@ -1,4 +1,4 @@
 export class Attributes{
-  control:boolean;
+  control:any;
   temperature: number;
 }

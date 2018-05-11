@@ -2,20 +2,24 @@
   <h3 class="card-header">Led osvetlenie</h3>
   <div class="card-body">
     <div class="card-widget">
-      <div class="row">
+      <div *ngIf="!loaded" class="text-center">
+        <h4 class="mb-3">Načítavam</h4>
+        <img class="w-25 mb-4" src="assets/loader.gif">
+      </div>
+      <div class="row" *ngIf="loaded">
         <div class="col-6 p-0 text-center">
           <h4 class="mb-3">Napájanie</h4>
-          <ui-switch ></ui-switch>
+          <ui-switch (click)="powerChangeStatus()" [checked]="power"></ui-switch>
           <h4 class="mb-0">Intenzita</h4>
-          <mat-slider class="btn-block pt-0" min="0" max="5" step="1" value="5"></mat-slider>
+          <mat-slider class="btn-block pt-0" min="0" max="5" step="1"  [(value)]="this.intensity" (click)="intensityChangeStatus($event.target)"></mat-slider>
         </div>
         <div class="col-6 align-self-center text-center">
           <div class="dropdown">
             <h4>Farba</h4>
             <div class="list-group pl-3">
-              <a href="#" class="list-group-item list-group-item-action" >Červená</a>
-              <a href="#" class="list-group-item list-group-item-action active">Zelená</a>
-              <a href="#" class="list-group-item list-group-item-action">Modrá</a>
+              <a class="list-group-item list-group-item-action" (click)="colorChangeStatus(0)" [ngClass]="ledColor == 0 ? 'active':''">Červená</a>
+              <a class="list-group-item list-group-item-action" (click)="colorChangeStatus(1)" [ngClass]="ledColor == 1 ? 'active':''">Zelená</a>
+              <a class="list-group-item list-group-item-action" (click)="colorChangeStatus(2)" [ngClass]="ledColor == 2 ? 'active':''">Modrá</a>
             </div>
           </div>
         </div>

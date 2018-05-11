@@ -1,14 +1,21 @@
 <div class="card h-100">
   <h3 class="card-header">Televízia</h3>
   <div class="card-body row align-items-center justify-content-center">
-    <div class="col-6 p-0 text-center">
-      <h4 class="mb-3">Napájanie</h4>
-      <ui-switch ></ui-switch>
+
+    <div *ngIf="!loaded" class="text-center">
+      <h4 class="mb-3">Načítavam</h4>
+      <img class="w-25 mb-4" src="assets/loader.gif">
     </div>
 
-    <div class="col-6 align-self-center text-center">
+
+    <div class="col-6 p-0 text-center" *ngIf="loaded">
+      <h4 class="mb-3">Napájanie</h4>
+      <ui-switch (click)="powerChangeStatus()" [checked]="power"></ui-switch>
+    </div>
+
+    <div class="col-6 align-self-center text-center" *ngIf="loaded2">
       <h4 class="mb-3">Stlmiť zvuk</h4>
-      <ui-switch ></ui-switch>
+      <ui-switch (click)="muteChangeStatus()" [checked]="mute"></ui-switch>
     </div>
 
 

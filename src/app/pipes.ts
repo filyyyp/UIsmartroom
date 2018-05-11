@@ -31,7 +31,7 @@ export class MonthsSlovak implements PipeTransform {
       case "12":
             return "December";
       default :
-        return "FAIL";
+        return "Čas nie je dostupný";
 
     }
   }

@@ -8,6 +8,6 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   title = 'app';
-  showSettings: boolean = true;
+  showSettings: boolean = false;
 
 }

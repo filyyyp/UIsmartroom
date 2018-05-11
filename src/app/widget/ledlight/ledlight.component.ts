@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ControlService} from "../../service/control.service";
 
 @Component({
   selector: 'app-ledlight',
@@ -6,21 +7,51 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ledlight.component.css']
 })
 export class LedlightComponent implements OnInit {
-  ledPower: boolean = true;
-  constructor() { }
+  loaded:boolean;
+  power:boolean;
+  intensity:number = 1;
+  ledColor:number;
+
+
+
+  constructor(private contolService : ControlService) { }
 
   ngOnInit() {
-  }
-  ledChangePower(){
-    this.ledPower = !this.ledPower;
+    this.contolService.ledLightGetState().then(result => {
+      this.power = result.attributes.control;
+    });
 
+    this.contolService.ledLightIntesityGetState().then(result => {
+      this.intensity = result.attributes.control;
+    });
+
+    this.contolService.ledLightColorGetState().then(result => {
+      this.ledColor = result.attributes.control;
+      this.loaded = true;
+    });
   }
 
-  bulbChangeStatus(){
-   // this.bulb = !this.bulb;
-//spravit farby na vstup do funkcie
-    //this.contolService.centralLightPostState(this.bulb).then(result=> {console.log(result);});
-
+  powerChangeStatus(){
+    this.contolService.ledLightPostState(!this.power).then(
+      result=> {
+        this.power = result.attributes.control;
+      });
   }
+
+  intensityChangeStatus(value){
+   // console.log(value);
+    this.contolService.ledLightIntensityPostState(this.intensity).then(
+      result=> {
+        this.intensity = result.attributes.control;
+      });
+  }
+
+  colorChangeStatus(value:number){
+    this.contolService.ledLightColorPostState(value).then(
+      result=> {
+        this.ledColor = value;
+      });
+  }
+
 
 }

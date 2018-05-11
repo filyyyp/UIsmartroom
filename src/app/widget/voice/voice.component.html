@@ -1,10 +1,15 @@
 <div class="card h-100">
   <h3 class="card-header">Ovládanie hlasom</h3>
-  <div class="card-body">
-    <div class="card-widget">
-      <div class="row">
+  <div class="card-body row align-items-center justify-content-center">
+    <div class="card-widget h-100">
+      <div class="text-center" *ngIf="!loaded">
+          <h4 class="mb-3">Načítavam</h4>
+          <img class="w-25 mb-4" src="assets/loader.gif">
+      </div>
 
-        <div class="col-6 p-0 text-center">
+      <div class="row" *ngIf="loaded">
+
+        <div class="col-6 p-0 text-center" >
           <h4 class="mb-3">Výpis príkazov</h4>
 
 
@@ -14,7 +19,8 @@
 
         <div class="col-6 align-self-center text-center">
           <h4 class="mb-3">Napájanie</h4>
-          <ui-switch ></ui-switch>
+
+          <ui-switch  [checked]="power"  (click)="powerChangeStatus()"></ui-switch>
         </div>
       </div>
 

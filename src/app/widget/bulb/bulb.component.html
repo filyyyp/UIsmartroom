@@ -3,10 +3,11 @@
   <div class="card-body h-100">
     <div class="card-widget row h-100 align-items-center">
       <div class="col-12 p-0 text-center">
+        <h4 class="mb-3" *ngIf="!loaded">Načítavam</h4>
         <img *ngIf="!loaded" class="w-25 mb-4" src="assets/loader.gif">
         <i *ngIf="loaded" class="fa fa-lightbulb-o fa-5x" [ngClass]="bulb ? 'color-yellow':'color-black'"></i>
       </div>
-      <div class="col-12">
+      <div class="col-12" *ngIf="loaded">
         <button class="btn btn-primary w-100" (click)="bulbChangeStatus()">{{ bulb ? 'Vypnúť' : 'Zapnúť' }}</button>
       </div>
     </div>
